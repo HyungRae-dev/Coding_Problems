@@ -9,13 +9,13 @@ Constraints:
   - At most 5*10^4 calls will be made to addNum and findMedian.
 
 Follow Up.
-  1.  If all integer numbers from the stram are in the range [0,100], how would you optimize your solution. 
+  1.  If all integer numbers from the stream are in the range [0,100], how would you optimize your solution. 
   2.  If 99% of all integer numbers from the stream are in the range [0,100], how  would you optimize?
 
-Solution. 
-  1. With one arraylist, everytime addNum is called, sort the list and return the median. 
-  2. Maintain two priority_queue smalls(reverse-order)/larges with two invariant. 
+Solution.  
+  1. With one arraylist, everytime addNum is called, sort the list and return the median. add:O(1),findMedian: O(N*log(N))
+  2. Maintain two priority_queue smalls(reverse-order)/larges with two invariant.   add:O(logN), findMedian: O(1)
       -   |smalls|-|larges|<=1.
       -   small.peek()<larges.peek().
      and return the median by peeking those two priority queue.
-  3. Maintain sorted list with finding index with binary search.  
+  3. Maintain sorted list with finding index with binary search.  add:O(logN), findMedian: O(1)
